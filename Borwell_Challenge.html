@@ -59,6 +59,7 @@
 
             document.getElementById("RoomHeight").value = null;
             document.getElementById("RoomWidth").value = null;
+            document.getElementById("RoomLength").value = null;
             document.getElementById("divResults").style.display = "none";
 
         }
@@ -76,7 +77,7 @@
             floorarea = (document.getElementById("RoomLength").value * document.getElementById("RoomWidth").value);
             roomvolume = (floorarea * document.getElementById("RoomHeight").value);
             wallarea = (document.getElementById("RoomLength").value * document.getElementById("RoomHeight").value * 2);
-            wallarea += (document.getElementById("RoomLength").value * document.getElementById("RoomHeight").value * 2);
+            wallarea += (document.getElementById("RoomWidth").value * document.getElementById("RoomHeight").value * 2);
 
             paintreqd = wallarea / AveCoverage;
 
@@ -90,7 +91,7 @@
         }
 
         function initLoad() {
-          
+
             document.getElementById("dispMaxWidth").innerText = MaxWidth;
             document.getElementById("dispMaxHeight").innerText = MaxHeight;
             document.getElementById("dispMaxLength").innerText = MaxLength;
@@ -102,6 +103,120 @@
 
 
     </script>
+
+    <style>
+        td {
+            Length: 15%;
+        }
+
+        h1 {
+            color: white
+        }
+
+        .clsErr {
+            color: red;
+            font-size: smaller;
+        }
+
+        .clsInitHid {
+            display: none;
+        }
+
+        .clslink {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .clsSiteHeader {
+            color: white;
+            background-color: #184420;
+            Length: 100%;
+            padding-top: 5;
+            padding-bottom: 5;
+
+        }
+
+        .clsResults {
+
+            background-color: lightgrey;
+            Length: 50%;
+            padding-top: 5;
+            padding-bottom: 5;
+            border-radius: 5px;
+
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    </style>
+
+<link rel='stylesheet' id='wp-block-library-css'
+href='https://borwell.com/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2' type='text/css'
+media='all' />
+<link rel='stylesheet' id='edsanimate-animo-css-css'
+href='https://borwell.com/wp-content/plugins/animate-it/assets/css/animate-animo.css?ver=5.4.2' type='text/css'
+media='all' />
+<link rel='stylesheet' id='siteorigin-panels-front-css'
+href='https://borwell.com/wp-content/plugins/siteorigin-panels/css/front-flex.min.css?ver=2.11.1'
+type='text/css' media='all' />
+<link rel='stylesheet' id='sow-button-base-css'
+href='https://borwell.com/wp-content/plugins/so-widgets-bundle/widgets/button/css/style.css?ver=1.17.3'
+type='text/css' media='all' />
+<link rel='stylesheet' id='sow-button-flat-4eddff10da27-css'
+href='https://borwell.com/wp-content/uploads/siteorigin-widgets/sow-button-flat-4eddff10da27.css?ver=5.4.2'
+type='text/css' media='all' />
+<link rel='stylesheet' id='sow-button-flat-234ed7d91ad7-css'
+href='https://borwell.com/wp-content/uploads/siteorigin-widgets/sow-button-flat-234ed7d91ad7.css?ver=5.4.2'
+type='text/css' media='all' />
+<link rel='stylesheet' id='sow-image-default-d6014b76747a-css'
+href='https://borwell.com/wp-content/uploads/siteorigin-widgets/sow-image-default-d6014b76747a.css?ver=5.4.2'
+type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-consent-style-css'
+href='https://borwell.com/wp-content/plugins/uk-cookie-consent/assets/css/style.css?ver=5.4.2' type='text/css'
+media='all' />
+<link rel='stylesheet' id='forms-for-campaign-monitor-custom_cm_monitor_css-css'
+href='https://borwell.com/wp-content/plugins/forms-for-campaign-monitor/forms/views/public/css/app.css?ver=1.0.0'
+type='text/css' media='all' />
+<link rel='stylesheet' id='zerif_font-css'
+href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic%7CMontserrat%3A700%7CHomemade+Apple&#038;ver=2.1.5'
+type='text/css' media='all' />
+<link rel='stylesheet' id='zerif_font_all-css'
+href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C300italic%2C400italic%2C600italic%2C600%2C700%2C700italic%2C800%2C800italic&#038;ver=2.1.5'
+type='text/css' media='all' />
+<link rel='stylesheet' id='zerif_bootstrap_style-css'
+href='https://borwell.com/wp-content/themes/zerif-pro/css/bootstrap.min.css?ver=2.1.5' type='text/css'
+media='all' />
+<link rel='stylesheet' id='zerif_font-awesome_style-css'
+href='https://borwell.com/wp-content/themes/zerif-pro/assets/css/font-awesome.min.css?ver=2.1.5' type='text/css'
+media='all' />
+<link rel='stylesheet' id='zerif_style-css'
+href='https://borwell.com/wp-content/themes/zerif-pro/style.css?ver=2.1.5' type='text/css' media='all' />
+
+<link rel='stylesheet' id='zerif_wpforms_style-css'
+href='https://borwell.com/wp-content/themes/zerif-pro/inc/compatibility/wpforms/style.css?ver=2.1.5'
+type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='zerif_ie_style-css'  href='https://borwell.com/wp-content/themes/zerif-pro/css/ie.css?ver=2.1.5' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='tablepress-default-css'
+href='https://borwell.com/wp-content/tablepress-combined.min.css?ver=7' type='text/css' media='all' />
+<link rel='stylesheet' id='tmm-css'
+href='https://borwell.com/wp-content/plugins/team-members/inc/css/tmm_style.css?ver=5.4.2' type='text/css'
+media='all' />
 </head>
 
 <body onload="initLoad();">
@@ -114,44 +229,49 @@
             <h4>Please enter the dimensions of the room ( measured in metres )<br />
         </div>
         <br />
-        <div>
-            <span>Height :</span>
-            <span><input type="number" id="RoomHeight" placeholder="0.00" step="0.01" min="0.01" max=6></span>
-            <div id="Div1Err" class="clsErr"></div>
+        <div class="container">
+            <table>
+                <tr>
+                    <td>Height :</td>
+                    <td><input type="number" id="RoomHeight" placeholder="0.00" step="0.01" min="0.01" max=6></td>
+                    <td id="Div1Err" class="clsErr"></td>
+                </tr>
+                <tr>
+                    <td>Width :</td>
+                    <td><input type="number" id="RoomWidth" placeholder="0.00" step="0.01" min="0.01" max=6></td>
+                    <td id="Div2Err" class="clsErr"></td>
+                </tr>
+                <tr>
+                    <td>Length :</td>
+                    <td><input type="number" id="RoomLength" placeholder="0.00" step="0.01" min="0.01" max=6></td>
+                    <td id="Div3Err" class="clsErr"></td>
+                </tr>
+            </table>
         </div>
-        <div>
-            <span>Width :</span>
-            <span><input type="number" id="RoomWidth" placeholder="0.00" step="0.01" min="0.01" max=6></span>
-            <div id="Div2Err" class="clsErr"></div>
-        </div>
-        <div>
-            <span>Length :</span>
-            <span><input type="number" id="RoomLength" placeholder="0.00" step="0.01" min="0.01" max=6></span>
-            <div id="Div3Err" class="clsErr"></div>
-        </div>
-
+        <br />
         <div class="container"><span><input type="button" value="Calculate"
                     onclick="if (ValidInput() ){Calculate()};"></span><span></span><input type="button" value="Reset"
                 onclick="ResetForm();"></span>
         </div>
-
+        <br />
         <div id="divResults" class="container clsResults">
             <h4>Your results</h4>
-            <p>The floor area of your room is <span id="floorarea"></span>m<sup>2</sup>:</p>
-            <p>The volume of your room is <span id="roomvolume"></span>m<sup>3</sup>:</p>
-            <p>The total area of your walls is <span id="totalarea"></span>m<sup>2</sup>:</p>
-            <p>Based on the information above, you will need <span id="paintreqd"></span> litres of paint</p>
+            <p>The floor area of your room is <span id="floorarea"></span>m<sup>2</sup><br />
+                The volume of your room is <span id="roomvolume"></span>m<sup>3</sup><br />
+                The total area of your walls is <span id="totalarea"></span>m<sup>2</sup><br />
+                Based on the information above, you will need <span id="paintreqd"></span> litres of paint</p>
+        </div>
+        <br />
+        <div id="divAssumptions" class="container clsResults">
+            <h4>Assumptions:</h4>
+            <p>
+                1. the maximum room depth is <span id="dispMaxWidth"></span>m<br />
+                2. the maximum room length is <span id="dispMaxLength"></span>m<br />
+                3. the maximum room height is <span id="dispMaxHeight"></span>m<br />
+                4. average paint coverage is <span id="dispAveCoverage"></span>m<sup>2</sup> per litre<br />
+                5. The estimate is for a single coat of paint
         </div>
 
-        <h4>Assumptions:</h4>
-        <p>
-            1. the maximum room depth is <span id="dispMaxWidth"></span>m<br />
-            2. the maximum room length is <span id="dispMaxLength"></span>m<br />
-            3. the maximum room height is <span id="dispMaxHeight"></span>m<br />
-            4. average paint coverage is <span id="dispAveCoverage"></span>m<sup>2</sup> per litre<br />
-            5. The estimate is for a single coat of paint
-
-            <br />
 
     </div>
 

@@ -4,7 +4,6 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="Length=device-Length, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -22,8 +21,6 @@
         const MaxWidth = 5;
 
         function ValidInput() {
-
-            alert("in ValidInput");
 
             /*         
             Validate the input, displaying appropriate error messages where required 
@@ -56,23 +53,58 @@
 
         function ResetForm() {
 
-            alert("in Reset");
+            document.getElementById("Div1Err").innerText = "";
+            document.getElementById("Div2Err").innerText = "";
+            document.getElementById("Div3Err").innerText = "";
+
+            document.getElementById("RoomHeight").value = null;
+            document.getElementById("RoomWidth").value = null;
+            document.getElementById("divResults").style.display = "none";
 
         }
+
 
         function Calculate() {
+            /*         
+            Calculate the amount of paint required 
+            */
+            var floorarea = 0;
+            var roomvolume = 0;
+            var wallarea = 0;
+            var paintreqd = 0;
 
-            alert("in Calculate");
+            floorarea = (document.getElementById("RoomLength").value * document.getElementById("RoomWidth").value);
+            roomvolume = (floorarea * document.getElementById("RoomHeight").value);
+            wallarea = (document.getElementById("RoomLength").value * document.getElementById("RoomHeight").value * 2);
+            wallarea += (document.getElementById("RoomLength").value * document.getElementById("RoomHeight").value * 2);
+
+            paintreqd = wallarea / AveCoverage;
+
+            document.getElementById("floorarea").innerText = floorarea;
+            document.getElementById("roomvolume").innerText = roomvolume;
+            document.getElementById("totalarea").innerText = wallarea;
+            document.getElementById("paintreqd").innerText = paintreqd;
+
+            document.getElementById("divResults").style.display = ""
 
         }
 
+        function initLoad() {
+          
+            document.getElementById("dispMaxWidth").innerText = MaxWidth;
+            document.getElementById("dispMaxHeight").innerText = MaxHeight;
+            document.getElementById("dispMaxLength").innerText = MaxLength;
+            document.getElementById("dispAveCoverage").innerText = AveCoverage;
 
+            document.getElementById("divResults").style.display = "none";
+
+        }
 
 
     </script>
 </head>
 
-<body>
+<body onload="initLoad();">
     <div class="container">
         <h1 class="clsSiteHeader">Borwell Software Challenge</h1>
     </div>
@@ -102,6 +134,24 @@
                     onclick="if (ValidInput() ){Calculate()};"></span><span></span><input type="button" value="Reset"
                 onclick="ResetForm();"></span>
         </div>
+
+        <div id="divResults" class="container clsResults">
+            <h4>Your results</h4>
+            <p>The floor area of your room is <span id="floorarea"></span>m<sup>2</sup>:</p>
+            <p>The volume of your room is <span id="roomvolume"></span>m<sup>3</sup>:</p>
+            <p>The total area of your walls is <span id="totalarea"></span>m<sup>2</sup>:</p>
+            <p>Based on the information above, you will need <span id="paintreqd"></span> litres of paint</p>
+        </div>
+
+        <h4>Assumptions:</h4>
+        <p>
+            1. the maximum room depth is <span id="dispMaxWidth"></span>m<br />
+            2. the maximum room length is <span id="dispMaxLength"></span>m<br />
+            3. the maximum room height is <span id="dispMaxHeight"></span>m<br />
+            4. average paint coverage is <span id="dispAveCoverage"></span>m<sup>2</sup> per litre<br />
+            5. The estimate is for a single coat of paint
+
+            <br />
 
     </div>
 

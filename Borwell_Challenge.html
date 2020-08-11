@@ -1,1 +1,110 @@
+<!doctype html>
+<html lang="en">
 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="Length=device-Length, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Borwell Software Challenge</title>
+
+    <script>
+        /*
+        Set some default basic values
+        */
+        const AveCoverage = 10;
+        const MaxHeight = 4;
+        const MaxLength = 15;
+        const MaxWidth = 5;
+
+        function ValidInput() {
+
+            alert("in ValidInput");
+
+            /*         
+            Validate the input, displaying appropriate error messages where required 
+            */
+
+            document.getElementById("Div1Err").innerText = "";
+            document.getElementById("Div2Err").innerText = "";
+            document.getElementById("Div3Err").innerText = "";
+
+            var retVal = true;
+
+            if ((document.getElementById("RoomHeight").value > MaxHeight) || (document.getElementById("RoomHeight").value <= 0)) {
+                document.getElementById("Div1Err").innerHTML = "Room height must be greater than zero and less than  " + MaxHeight + "m<br/>";
+                retVal = false;
+            }
+
+            if ((document.getElementById("RoomWidth").value > MaxWidth) || (document.getElementById("RoomWidth").value <= 0)) {
+                document.getElementById("Div2Err").innerHTML = "Room width must be greater than zero and less than " + MaxWidth + "m<br/>";
+                retVal = false;
+            }
+
+            if ((document.getElementById("RoomLength").value > MaxLength) || (document.getElementById("RoomLength").value <= 0)) {
+                document.getElementById("Div3Err").innerHTML = "Room length must be greater than zero and less than  " + MaxLength + "m<br/>";
+                retVal = false;
+            }
+
+            return retVal;
+
+        }
+
+        function ResetForm() {
+
+            alert("in Reset");
+
+        }
+
+        function Calculate() {
+
+            alert("in Calculate");
+
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="clsSiteHeader">Borwell Software Challenge</h1>
+    </div>
+    <div class="container">
+        <br />
+        <div>
+            <h4>Please enter the dimensions of the room ( measured in metres )<br />
+        </div>
+        <br />
+        <div>
+            <span>Height :</span>
+            <span><input type="number" id="RoomHeight" placeholder="0.00" step="0.01" min="0.01" max=6></span>
+            <div id="Div1Err" class="clsErr"></div>
+        </div>
+        <div>
+            <span>Width :</span>
+            <span><input type="number" id="RoomWidth" placeholder="0.00" step="0.01" min="0.01" max=6></span>
+            <div id="Div2Err" class="clsErr"></div>
+        </div>
+        <div>
+            <span>Length :</span>
+            <span><input type="number" id="RoomLength" placeholder="0.00" step="0.01" min="0.01" max=6></span>
+            <div id="Div3Err" class="clsErr"></div>
+        </div>
+
+        <div class="container"><span><input type="button" value="Calculate"
+                    onclick="if (ValidInput() ){Calculate()};"></span><span></span><input type="button" value="Reset"
+                onclick="ResetForm();"></span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
